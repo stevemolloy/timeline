@@ -1,6 +1,7 @@
 const path = require('path');
 const rootPath = path.normalize(__dirname + '/..');
 const env = process.env.NODE_ENV || 'development';
+require('dotenv').config();
 
 const config = {
   development: {
@@ -9,7 +10,7 @@ const config = {
       name: 'timeline'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/timeline-development'
+    db: process.env.DBURL
   },
 
   test: {
@@ -18,7 +19,7 @@ const config = {
       name: 'timeline'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/timeline-test'
+    db: process.env.DBURL
   },
 
   production: {
@@ -27,7 +28,7 @@ const config = {
       name: 'timeline'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/timeline-production'
+    db: process.env.DBURL
   }
 };
 
